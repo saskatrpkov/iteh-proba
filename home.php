@@ -7,7 +7,7 @@
     <link rel="shortcut icon" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-    <title>FON: Prijava kolokvijuma</title>
+    <title>FON: Prijava kolokvijuma!</title>
 
 </head>
 
@@ -46,9 +46,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php
-            while ($red = $result->fetch_array()) {
-                ?>
+            
                 <tr>
                     <td><?php echo $red["predmet"] ?></td>
                     <td><?php echo $red["katedra"] ?></td>
@@ -62,9 +60,7 @@
                     </td>
 
                 </tr>
-                <?php
-            }
-            } ?>
+                
             </tbody>
         </table>
         <div class="row" >

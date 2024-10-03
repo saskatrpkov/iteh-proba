@@ -1,3 +1,41 @@
+<?php
+require "dbBroker.php";
+require "model/user.php";
+
+session_start();
+
+if(isset($_POST["username"]) && isset($_POST["password"])){
+    $uname=$_POST["username"];
+    $upass=$_POST["password"];
+
+    $korsnik=new User(1,$uname,$upass);
+    //$conn=new mysqli();
+
+    // $odgovor=$korsnik->loginUser($korsnik,$conn);
+
+    $odgovor=User::loginUser($korsnik,$conn);
+    if($odgovor->num_rows==1){
+        echo `
+        <script>
+        console.log(Uspesno ste se ulogovali);
+        </script>
+        `;
+        $_SESSION["id"]=$korsnik->id;
+        header("Location: home.php");
+        exit();
+    }
+    else{
+        echo `
+        <script>
+        console.log(Niste se ulogovali);
+        </script>
+        `;
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
